@@ -16,7 +16,7 @@ class CreateBillTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->uuid("bill_number")->unique();
             $table->primary("bill_number");
-            $table->string("patient_id");
+            $table->uuid("patient_id");
             $table->string("patient_type");
             $table->string("doctor_charge");
             $table->string("lab_charge");

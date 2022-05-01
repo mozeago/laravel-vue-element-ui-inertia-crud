@@ -15,8 +15,8 @@ class CreateLabresultsTable extends Migration
     {
         Schema::create('lab_results', function (Blueprint $table) {
             $table->uuid("lab_id")->unique();
-            $table->string("patient_id");
-            $table->string("doctor_id");
+            $table->uuid("patient_id");
+            $table->uuid("doctor_id");
             $table->primary("lab_id");
             $table->string("weight");
             $table->string("date");

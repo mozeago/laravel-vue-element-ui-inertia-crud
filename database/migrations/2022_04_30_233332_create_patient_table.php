@@ -23,8 +23,8 @@ class CreatePatientTable extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->string('disease');
-            $table->string('doctor_id');
-            $table->reference('doctor_id')->on('doctors');
+            $table->uuid('doctor_id');
+            $table->foreign('doctor_id')->references('doctor_id')->on('doctors');
             $table->timestamps();
         });
     }

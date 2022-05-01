@@ -17,7 +17,7 @@ class CreateOutpatientTable extends Migration
             $table->uuid("outpatient_id")->unique();
             $table->primary("outpatient_id");
             $table->string("admission_date")->timestamp();
-            $table->string("lab_id");
+            $table->uuid("lab_id");
             $table->foreign("lab_id")->references("lab_id")->on("lab_results");
             $table->timestamps();
         });
