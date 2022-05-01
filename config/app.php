@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Emadadly\LaravelUuid\LaravelUuidServiceProvider::class,
         /*
          * Application Service Providers...
          */
