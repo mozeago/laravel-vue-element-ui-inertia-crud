@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +11,32 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.js("resources/js/app.js", "public/js")
+    .vue()
+    .postCss("resources/css/app.css", "public/css", [
+        require("postcss-import"),
+        require("tailwindcss"),
+        require("autoprefixer"),
+    ])
+    .alias({
+        "@": "resources/js",
+    });
+
+if (mix.inProduction()) {
+    mix.version();
+}
+
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+
+module.exports = {
+    // ...
+    plugins: [
+        new BrowserSyncPlugin({
+            // browse to http://localhost:3000/ during development,
+            // ./public directory is being served
+            host: "127.0.0.1",
+            port: 8000,
+            server: { baseDir: ["public"] },
+        }),
+    ],
+};
