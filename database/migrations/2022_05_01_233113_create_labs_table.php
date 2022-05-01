@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDoctorTable extends Migration
+class CreateLabsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateDoctorTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctors', function (Blueprint $table) {
-            $table->uuid('doctor_id')->unique();
-            $table->primary('doctor_id');
-            $table->string('doctor_name');
-            $table->string('department');
+        Schema::create('labs', function (Blueprint $table) {
+            $table->uuid("id");
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateDoctorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor');
+        Schema::dropIfExists('labs');
     }
 }
