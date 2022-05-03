@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
@@ -41,6 +42,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
+            'user_id' => Str::orderedUuid(),
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
