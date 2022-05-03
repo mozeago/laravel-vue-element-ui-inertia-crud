@@ -1,4 +1,4 @@
-## About Laravel
+## About The Project
 mini-Hospital management system
 ## Language/framework
 - Laravel
