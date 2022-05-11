@@ -1,5 +1,7 @@
 const mix = require("laravel-mix");
-
+const AutoImport = require("unplugin-auto-import/webpack");
+const Components = require("unplugin-vue-components/webpack");
+const { ElementPlusResolver } = require("unplugin-vue-components/resolvers");
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -38,5 +40,12 @@ module.exports = {
             port: 8000,
             server: { baseDir: ["public"] },
         }),
+        AutoImport({
+            resolvers: [ElementPlusResolver()],
+        }),
+        Components({
+            resolvers: [ElementPlusResolver()],
+        }),
     ],
 };
+mix.browserSync("http://127.0.0.1:8000/");
